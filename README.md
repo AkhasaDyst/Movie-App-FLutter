@@ -6,17 +6,21 @@ Movie Database App using **TMDB** API and **Flutter**
 
 ## API TMDB
 ![API URL](https://raw.githubusercontent.com/AkhasaDyst/Movie-App-Flutter/master/assets/images/screen/url.png)
-Using the **[The Movie Database](https://www.themoviedb.org/)** to show movie list depend on Popularity, Newest, and Top Rated
 <br>
 ![Popular](https://raw.githubusercontent.com/AkhasaDyst/Movie-App-Flutter/master/assets/images/screen/url-1.png)
+<br>
 ![Now Playing](https://raw.githubusercontent.com/AkhasaDyst/Movie-App-Flutter/master/assets/images/screen/url-2.png)
+<br>
 ![Top Rated](https://raw.githubusercontent.com/AkhasaDyst/Movie-App-Flutter/master/assets/images/screen/url-3.png)
-
+<br>
+Using the **[The Movie Database](https://www.themoviedb.org/)** to show movie list depend on Popularity, Newest, and Top Rated
+<br>
 ## Clean Architecture
 ![Clean Architecture](https://raw.githubusercontent.com/AkhasaDyst/Movie-App-Flutter/master/assets/images/screen/cleanarch.png)
 ![Structure Code](https://raw.githubusercontent.com/AkhasaDyst/Movie-App-Flutter/master/assets/images/screen/structure.png)
-Clean Architecture separate on 3 layer, Presentation, Domain, and Data. This lead to the codebase more maintainable and allows for easier updates or changes to specific components without affecting the entire application.
 <br>
+Clean Architecture separate on 3 layer, Presentation, Domain, and Data. This lead to the codebase more maintainable and allows for easier updates or changes to specific components without affecting the entire application.
+
 
 ## BLoC - State Management
 ![Clean Architecture](https://raw.githubusercontent.com/AkhasaDyst/Movie-App-Flutter/master/assets/images/screen/bloc.png)
