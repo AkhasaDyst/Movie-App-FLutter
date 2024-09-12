@@ -32,4 +32,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: flutter-apk
-          path: build/app/outputs/flutter-apk/MovieApp.apk
+          path: build/app/outputs/flutter-apk/app-release.apk
