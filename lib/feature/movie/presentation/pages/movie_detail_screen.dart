@@ -38,7 +38,6 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-
                     Image.network(
                       'https://image.tmdb.org/t/p/w500${movie.backdropPath}',
                       width: double.infinity,
@@ -73,8 +72,9 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      child: Wrap(
+                        spacing: 20.0,
+                        runSpacing: 8.0,
                         children: [
                           Text('Rating: ${movie.voteAverage}/10'),
                           Text('Release Date: ${movie.releaseDate}'),
@@ -137,13 +137,17 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                               return Row(
                                 children: [
                                   if (company.logoPath != null)
-                                    Image.network(
-                                      'https://image.tmdb.org/t/p/w500${company.logoPath}',
-                                      height: 40,
-                                      width: 40,
-                                      fit: BoxFit.cover,
+                                    Row(
+                                      children: [Image.network(
+                                        'https://image.tmdb.org/t/p/w500${company.logoPath}',
+                                        height: 40,
+                                        width: 40,
+                                        fit: BoxFit.fitWidth,
+                                      ),
+                                        SizedBox(width: 10),
+                                      ]
                                     ),
-                                  SizedBox(width: 10),
+
                                   Text(company.name),
                                   Spacer(),
                                   Text(company.originCountry),
