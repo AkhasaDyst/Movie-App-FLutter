@@ -36,7 +36,7 @@ My Bloc is used when retrieve data movie popular, now playing and top rated, on 
 
 ## Release app build (.apk)
 ![Release APK](https://raw.githubusercontent.com/AkhasaDyst/Movie-App-Flutter/master/assets/images/screen/apk.png)
-[Release APK](https://github.com/AkhasaDyst/Movie-App-Flutter/actions/runs/10828395351)
+[Release APK](https://github.com/AkhasaDyst/Movie-App-Flutter/actions/runs/10828940231)
 <br>
 
 
