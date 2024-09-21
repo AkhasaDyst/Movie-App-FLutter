@@ -24,6 +24,8 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
+    Orientation orientation = MediaQuery.of(context).orientation;
     return Scaffold(
       extendBodyBehindAppBar: true,
       body: BlocBuilder<MovieDetailBloc, MovieDetailState>(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
+import 'package:sizer/sizer.dart';
 import 'package:tmdb/config/theme/theme.dart';
 import 'feature/movie/data/datasources/movie_datasources.dart';
 import 'feature/movie/data/repository/movie_repository_impl.dart';
@@ -15,10 +16,15 @@ void main() {
   final getPopularMovies = GetPopularMovies(repository);
   final getNowPlayingMovies = GetNowPlayingMovies(repository);
   final getTopRatedMovies = GetTopRatedMovies(repository);
+
   runApp(
     RepositoryProvider<MovieRepository>(
       create: (context) => repository,
-      child: MyApp(getPopularMovies: getPopularMovies, getNowPlayingMovies: getNowPlayingMovies, getTopRatedMovies: getTopRatedMovies, ),
+      child: MyApp(
+        getPopularMovies: getPopularMovies,
+        getNowPlayingMovies: getNowPlayingMovies,
+        getTopRatedMovies: getTopRatedMovies,
+      ),
     ),
   );
 }
@@ -36,14 +42,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: MovieTheme.themeData,
-      debugShowCheckedModeBanner: false,
-      title: 'TMDB',
-      home: BlocProvider(
-        create: (context) => MovieBloc(getPopularMovies: getPopularMovies, getNowPlayingMovies: getNowPlayingMovies, getTopRatedMovies: getTopRatedMovies, ),
-        child: HomeScreen(),
-      ),
+    return Sizer(
+      builder: (context, orientation, screenType) {
+        return MaterialApp(
+          theme: MovieTheme.themeData,
+          debugShowCheckedModeBanner: false,
+          title: 'TMDB',
+          home: BlocProvider(
+            create: (context) => MovieBloc(
+              getPopularMovies: getPopularMovies,
+              getNowPlayingMovies: getNowPlayingMovies,
+              getTopRatedMovies: getTopRatedMovies,
+            ),
+            child: HomeScreen(),
+          ),
+        );
+      },
     );
   }
 }

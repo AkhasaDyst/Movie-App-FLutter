@@ -35,6 +35,7 @@ dependencies:
   equatable: ^2.0.3
   dio: ^5.7.0
 
+  sizer: ^2.0.15
 
   xml: ^6.1.0
   http: ^1.2.2
