@@ -39,6 +39,7 @@ class MovieItem extends StatelessWidget {
           bool isWideScreen = screenSize.width > 600;
 
           return Container(
+
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
@@ -63,7 +64,6 @@ class MovieItem extends StatelessWidget {
             margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 8.0),
             constraints: BoxConstraints(
               minHeight: 20.0.h,
-
             ),
             child: isWideScreen
                 ? Column(

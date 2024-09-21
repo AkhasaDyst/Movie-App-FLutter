@@ -31,10 +31,11 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
     double screenWidth = screenSize.width;
-    int crossAxisCount = screenWidth > 1400 ? 6
-        : screenWidth > 1200 ? 5
+    int crossAxisCount = screenWidth > 1300 ? 6
+        : screenWidth > 1100 ? 5
         : screenWidth > 900 ? 4
         : screenWidth > 600 ? 3
+
         : 1;
 
     return Scaffold(
@@ -43,21 +44,29 @@ class _HomeScreenState extends State<HomeScreen> {
           if (state is MovieLoading) {
             return Center(child: CircularProgressIndicator());
           } else if (state is MovieLoaded) {
-            return kIsWeb || screenWidth > 600
-                ? GridView.builder(
-              padding: const EdgeInsets.all(8.0),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: crossAxisCount,
-                crossAxisSpacing: 8.0,
-                mainAxisSpacing: 8.0,
-                childAspectRatio: screenWidth > 600 ? 0.6 : 3.3,
-              ),
-              itemCount: state.movies.length,
-              itemBuilder: (context, index) {
-                final movie = state.movies[index];
-                return MovieItem(movie: movie);
-              },
-            )
+            return screenWidth > 600
+                ? Stack(
+                  children: [
+                    _buildTopButtons(context),
+                    Container(
+                      margin: EdgeInsets.only(top: 50),
+                      child: GridView.builder(
+                        padding: const EdgeInsets.all(8.0),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: crossAxisCount,
+                          crossAxisSpacing: 8.0,
+                          mainAxisSpacing: 8.0,
+                          childAspectRatio: screenWidth > 600 ? 0.6 : 3.3,
+                        ),
+                        itemCount: state.movies.length,
+                        itemBuilder: (context, index) {
+                          final movie = state.movies[index];
+                          return MovieItem(movie: movie);
+                        },
+                      ),
+                    ),
+                  ]
+                )
                 : ListView.builder(
               itemCount: state.movies.length,
               itemBuilder: (context, index) {
@@ -88,11 +97,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 'https://image.tmdb.org/t/p/w500${movie.posterPath}',
                 fit: BoxFit.cover,
                 width: double.infinity,
-                height: 60.0.h,
+                height: 80.0.h,
               ),
               Container(
                 width: double.infinity,
-                height: 60.0.h,
+                height: 80.0.h,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,

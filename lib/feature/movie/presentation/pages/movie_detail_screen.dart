@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sizer/sizer.dart';
 
 import '../bloc/movie/movie_bloc.dart';
 import '../bloc/movie/movie_event.dart';
@@ -24,8 +25,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
-    Orientation orientation = MediaQuery.of(context).orientation;
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       body: BlocBuilder<MovieDetailBloc, MovieDetailState>(
@@ -43,7 +43,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                     Image.network(
                       'https://image.tmdb.org/t/p/w500${movie.backdropPath}',
                       width: double.infinity,
-                      height: 250,
+                      height: 60.0.h,
                       fit: BoxFit.cover,
                     ),
                     Padding(
